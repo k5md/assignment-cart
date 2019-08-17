@@ -24,7 +24,7 @@ class Catalog extends Component {
     getProducts().then(
       (products) => {
         const normalizedProducts = products
-          .filter(item => item.goods)
+          .filter(item => item.goods && item.rid)
           .map(item => ({
             ...item,
             goods: item.goods.map(good => ({
@@ -88,7 +88,12 @@ class Catalog extends Component {
   }
 
   render() {
-    const { products, cart, activeCategory, status } = this.state;
+    const {
+      products,
+      cart,
+      activeCategory,
+      status,
+    } = this.state;
 
     const showAllFakeEntry = [{ rid: '-1', rname: 'Все товары' }];
     const productsWithFake = showAllFakeEntry.concat(products);

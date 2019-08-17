@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import _ from 'lodash';
 
 import Item from '../Item';
 
@@ -49,7 +48,10 @@ class Category extends React.Component {
 }
 
 Category.propTypes = {
-  product: PropTypes.object,
+  product: PropTypes.shape({
+    goods: PropTypes.array,
+    rname: PropTypes.string,
+  }),
   cart: PropTypes.object,
   handleAmountChange: PropTypes.func,
 };

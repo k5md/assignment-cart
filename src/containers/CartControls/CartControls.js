@@ -11,22 +11,22 @@ class CartControls extends React.Component {
     } = this.props;
     const items = Object.values(cart);
     const totalQuantity = items.reduce((acc, cur) => acc + cur.gquantity, 0);
-    const totalPrice = items.reduce((acc, cur) => acc + cur.gquantity * cur.gprice, 0);
+    const totalPrice = items.reduce((acc, cur) => acc + cur.gquantity * cur.gprice, 0).toFixed(2);
 
     const sending = status === 'sending';
 
     return (
       <nav className="d-inline-flex bg-light fixed-bottom justify-content-end cart-controls ">
-        <div className="col-md-6 d-inline-flex flex-row align-items-center  justify-content-around">
-          <div className="mx-5">
+        <div className="col d-inline-flex flex-row align-items-center justify-content-around">
+          <div className="mx-auto">
             <span>Товаров: </span>
             <span>{totalQuantity}</span>
           </div>
-          <div className="mx-5">
+          <div className="mx-auto">
             <span>Итого: </span>
             <span>{totalPrice}</span>
           </div>
-          <div className="mx-5">
+          <div className="mx-auto">
             <button
               type="button"
               className="btn btn-primary"
@@ -43,7 +43,7 @@ class CartControls extends React.Component {
           </div>
         </div>
       </nav>
-    ); 
+    );
   }
 }
 

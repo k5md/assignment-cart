@@ -3,7 +3,6 @@ import _ from 'lodash';
 import PropTypes from 'prop-types';
 
 import Category from '../Category';
-import Item from '../Item';
 
 class Cart extends React.Component {
   render() {
@@ -35,7 +34,12 @@ class Cart extends React.Component {
 }
 
 Cart.propTypes = {
-  products: PropTypes.array,
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      rid: PropTypes.string,
+      rname: PropTypes.string,
+    }),
+  ),
   activeCategory: PropTypes.string,
   cart: PropTypes.object,
   handleAmountChange: PropTypes.func,
