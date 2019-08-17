@@ -39,11 +39,11 @@ const CategoryFilter = ({
 CategoryFilter.propTypes = {
   products: PropTypes.arrayOf(
     PropTypes.shape({
-      rid: PropTypes.number,
+      rid: PropTypes.string,
       rname: PropTypes.string,
     })
   ),
-  activeCategory: PropTypes.number,
+  activeCategory: PropTypes.string,
   handleSelect: PropTypes.func,
 };
 

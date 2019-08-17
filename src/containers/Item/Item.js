@@ -76,7 +76,7 @@ class Item extends React.Component {
 Item.propTypes = {
   cart: PropTypes.object,
   item: PropTypes.shape({
-    gid: PropTypes.number,
+    gid: PropTypes.string,
     gname: PropTypes.string,
     gprice: PropTypes.number,
   }),

@@ -16,31 +16,19 @@ class Cart extends React.Component {
 
     return (
       <table className="table table-sm table-fixed">
-        <thead className="thead-dark">
-          <tr>
-            <th>ID</th>
-            <th>Название товара</th>
-            <th>Цена</th>
-            <th>Количество</th>
-            <th>Сумма</th>
-          </tr>
-        </thead>
-
-          {products.map((item, index) => {
-            if (activeCategory !== '-1' && item.rid !== activeCategory) {
-              return null;
-            }
-            return (
-              <Category
-                key={item.rid}
-                cart={cart}
-                handleAmountChange={handleAmountChange}
-                product={products[index]}
-              />
-            );
+        {products.map((item, index) => {
+          if (activeCategory !== '-1' && item.rid !== activeCategory) {
+            return null;
           }
-          )}
-
+          return (
+            <Category
+              key={item.rid}
+              cart={cart}
+              handleAmountChange={handleAmountChange}
+              product={products[index]}
+            />
+          );
+        })}
       </table>
     );
   }
@@ -48,7 +36,7 @@ class Cart extends React.Component {
 
 Cart.propTypes = {
   products: PropTypes.array,
-  activeCategory: PropTypes.number,
+  activeCategory: PropTypes.string,
   cart: PropTypes.object,
   handleAmountChange: PropTypes.func,
 };

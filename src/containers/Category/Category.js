@@ -19,14 +19,21 @@ class Category extends React.Component {
       handleAmountChange,
     } = this.props;
 
-    const { goods } = product;
+    const { goods, rname } = product;
 
     return (
       <tbody>
        <tr>
           <td colSpan="5" align="center">
-            <h2>{product.rname}</h2>
+            <h2>{rname}</h2>
           </td>
+        </tr>
+        <tr className="thead-dark">
+          <th>ID</th>
+          <th>Название товара</th>
+          <th>Цена</th>
+          <th>Количество</th>
+          <th>Сумма</th>
         </tr>
         {goods.map((item) => (
           <Item
