@@ -27,7 +27,7 @@ class Cart extends React.Component {
         </thead>
 
           {products.map((item, index) => {
-            if (activeCategory !== -1 && item.rid !== activeCategory) {
+            if (activeCategory !== '-1' && item.rid !== activeCategory) {
               return null;
             }
             return (

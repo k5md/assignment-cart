@@ -10,7 +10,7 @@ class Catalog extends Component {
   state = {
     products: [],
     cart: {},
-    activeCategory: -1,
+    activeCategory: '-1',
     status: 'ready',
     error: null,
   }
