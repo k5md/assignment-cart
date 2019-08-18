@@ -5,6 +5,8 @@ import Item from '../Item';
 
 class Category extends React.Component {
   shouldComponentUpdate(nextProps) {
+    // Check that updated cart includes gids from the current category to rerender
+    // only categories with items in cart
     const { cart, product } = nextProps;
     const cartIds = Object.keys(cart);
 

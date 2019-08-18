@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 import { getProducts, addBasket } from '../../utils/API';
-import Cart from '../Cart';
-import CartControls from '../CartControls';
-import CategoryFilter from '../CategoryFilter';
+import Cart from '../../components/Cart';
+import CartControls from '../../components/CartControls';
+import CategoryFilter from '../../components/CategoryFilter';
 
 
 class Catalog extends Component {
@@ -13,11 +13,6 @@ class Catalog extends Component {
     activeCategory: '-1',
     status: 'ready',
     error: null,
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log(nextProps, nextState);
-    return true;
   }
 
   componentDidMount() {
@@ -95,15 +90,15 @@ class Catalog extends Component {
       status,
     } = this.state;
 
-    const showAllFakeEntry = [{ rid: '-1', rname: 'Все товары' }];
-    const productsWithFake = showAllFakeEntry.concat(products);
+    const showAllEntry = [{ rid: '-1', rname: 'Все товары' }];
+    const productsWithAll = showAllEntry.concat(products);
 
     return (
       <div className="container cart-container">
         <div className="row">
           <div className="col-md-4 full-height">
             <CategoryFilter
-              products={productsWithFake}
+              products={productsWithAll}
               activeCategory={activeCategory}
               handleSelect={this.setActiveCategory}
             />

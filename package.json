@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "description": "Test assignment for Data Inlife",
   "scripts": {
-    "develop": "webpack-dev-server --config ./webpack.dev.js",
-    "build": "webpack --config webpack.prod.js",
+    "develop": "cross-env NODE_ENV=development webpack-dev-server --config ./webpack.dev.js",
+    "build": "rimraf dist && cross-env NODE_ENV=production webpack --config webpack.prod.js",
     "lint": "npx eslint ."
   },
   "author": "k5md",
@@ -22,6 +22,7 @@
     "babel-loader": "^8.0.6",
     "bootstrap": "^4.3.1",
     "classnames": "^2.2.6",
+    "cross-env": "^5.2.0",
     "css-loader": "^2.1.1",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.2.0",
@@ -37,6 +38,8 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "redux-logger": "^3.0.6",
+    "rimraf": "^3.0.0",
+    "surge": "^0.21.3",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.8.0",

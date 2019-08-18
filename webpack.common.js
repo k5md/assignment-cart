@@ -1,12 +1,12 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
+const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
   entry: './src/index.js',
   output: {
-    filename:'assets/[name].js',
+    filename:'[hash].js',
     path: path.resolve(__dirname, 'dist/'),
     publicPath: '/',
   },
@@ -15,35 +15,27 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader'
-        }
+        use: [
+          'babel-loader'
+        ]
       },
       {
         test: /\.html$/,
         use: [
-          {
-            loader: 'html-loader'
-          }
-        ]
+          'html-loader',
+        ],
       },
       {
         test: /\.css$/,
         use: [
-          {
-            loader: MiniCssExtractPlugin.loader
-          },
-          {
-            loader: 'css-loader',
-          },
+          MiniCssExtractPlugin.loader,
+          'css-loader',
         ],
       },
       {
         test: /\.svg$/,
         use: [
-          {
-            loader: 'svg-inline-loader'
-          }
+          'svg-inline-loader',
         ]
       }
     ]
@@ -54,7 +46,12 @@ module.exports = {
       filename: 'index.html',
     }),
     new MiniCssExtractPlugin({
-      filename: 'assets/[hash].css',
+      filename: '[hash].css',
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+      }
     }),
   ],
   target: 'web'

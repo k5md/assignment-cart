@@ -16,7 +16,7 @@ class CartControls extends React.Component {
     const sending = status === 'sending';
 
     return (
-      <nav className="d-inline-flex bg-light fixed-bottom justify-content-end cart-controls ">
+      <nav className="d-inline-flex bg-light fixed-bottom justify-content-end cart-controls">
         <div className="col d-inline-flex flex-row align-items-center justify-content-around">
           <div className="mx-auto">
             <span>Товаров: </span>

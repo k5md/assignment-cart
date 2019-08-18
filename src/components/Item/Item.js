@@ -6,6 +6,8 @@ class Item extends React.Component {
     const prevProps = this.props;
 
     try {
+      // Check if quantity of current item in updated cart is different to prevent
+      // Unnecessary item rerenders
       const { cart: oldCart, item: { gid: oldGid} } = prevProps;
       const { cart: newCart, item: { gid: newGid} } = nextProps;
 
